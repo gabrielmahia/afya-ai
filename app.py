@@ -91,10 +91,8 @@ with tab1:
     col1.metric("Your monthly contribution", f"KES {contribution:,}")
     col2.metric("Employer matches", f"KES {contribution:,}")
     st.metric("Total NHIF per month", f"KES {contribution*2:,}")
-    st.info("✅ NHIF covers: Inpatient at public hospitals · Maternity (Linda Mama) · Surgery · ICU
-
-"
-            "⚠️ NOT covered: Outpatient at most public facilities · Dental · Optical (limited)")
+    nhif_info = ("NHIF covers: Inpatient at public hospitals, Maternity (Linda Mama), Surgery, ICU.\n\nNOT covered: Outpatient at most public facilities, Dental, Optical (limited).")
+    st.info(nhif_info)
     st.caption("Rates: NHIF Act / SHA Act 2023. Verify at nhif.or.ke")
 
 with tab2:
