@@ -3,6 +3,7 @@ AfyaAI — Kenya Health Assistant
 Maternal health, NHIF/SHA navigation, clinical guidance for Kenya.
 """
 import sys, json, urllib.request, ssl
+import urllib.error
 import streamlit as st
 
 # ── Page config ───────────────────────────────────────────────
@@ -30,7 +31,6 @@ def gemini(prompt: str, key: str, max_tokens: int = 1200) -> str:
         data=json.dumps(body).encode(),
         headers={"Content-Type": "application/json"})
     try:
-        import ssl, urllib.error
         with urllib.request.urlopen(req_obj, timeout=25,
                                      context=ssl.create_default_context()) as r:
             d = json.loads(r.read())
