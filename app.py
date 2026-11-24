@@ -23,7 +23,7 @@ def get_gemini_key():
 
 def gemini(prompt: str, key: str, max_tokens: int = 1200) -> str:
     """Call Gemini — returns graceful fallback on any error, never raises."""
-    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent"
     prompt = prompt[:5000]
     body = {"contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"temperature": 0.3, "maxOutputTokens": max_tokens}}
