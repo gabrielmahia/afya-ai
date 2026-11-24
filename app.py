@@ -27,9 +27,9 @@ def gemini(prompt: str, key: str, max_tokens: int = 1200) -> str:
     prompt = prompt[:5000]
     body = {"contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"temperature": 0.3, "maxOutputTokens": max_tokens}}
-    req_obj = urllib.request.Request(f"{url}?key={key}",
+    req_obj = urllib.request.Request(url,
         data=json.dumps(body).encode(),
-        headers={"Content-Type": "application/json"})
+        headers={"Content-Type": "application/json", "x-goog-api-key": key})
     try:
         with urllib.request.urlopen(req_obj, timeout=25,
                                      context=ssl.create_default_context()) as r:
